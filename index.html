@@ -11,6 +11,21 @@
 </head>
 <body>
 
+<div id="gate">
+  <div class="gate-box">
+    <span class="gate-eyebrow">Emilia Investment Group</span>
+    <h1 class="gate-title">Acces privat</h1>
+    <p class="gate-copy">Introdu codul de acces pentru a vedea identitatea vizuală.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-code" class="gate-input" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="••••" aria-label="Cod de acces">
+      <button type="submit" class="gate-submit">Intră</button>
+    </form>
+    <p id="gate-error" class="gate-error" hidden>Cod greșit. Încearcă din nou.</p>
+  </div>
+</div>
+
+<div id="site-content" hidden>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="emGrad" x1="0" y1="1" x2="1" y2="0">
@@ -281,6 +296,8 @@
     <span class="footer-copy">© 2026 Emilia Investment Group</span>
   </div>
 </footer>
+
+</div>
 
 <script src="script.js"></script>
 </body>

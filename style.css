@@ -21,6 +21,46 @@ body {
 @keyframes emGlow { 0%,100% { opacity:.55; transform: translate(-50%,-50%) scale(1); } 50% { opacity:.85; transform: translate(-50%,-50%) scale(1.12); } }
 @keyframes emDrift { 0%,100% { transform: translateY(0); opacity:.5; } 50% { transform: translateY(10px); opacity:1; } }
 
+/* ---------- Access gate ---------- */
+[hidden] { display:none !important; }
+#gate {
+  position:fixed; inset:0; z-index:1000;
+  display:flex; align-items:center; justify-content:center;
+  padding:24px;
+  background:radial-gradient(120% 90% at 50% 8%, #4a2510 0%, #32180a 58%, #240f05 100%);
+}
+.gate-box {
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  max-width:360px; width:100%; text-align:center;
+}
+.gate-eyebrow {
+  font-size:10px; letter-spacing:.4em; text-transform:uppercase; color:rgba(240,194,145,.75);
+}
+.gate-title {
+  margin:0; font-family:'Venora Rosalind','Cormorant Garamond',Georgia,serif; font-weight:400;
+  font-size:clamp(28px,6vw,38px); color:#eadfd5;
+}
+.gate-copy {
+  margin:0 0 8px; font-size:14px; line-height:1.6; color:rgba(234,223,213,.65);
+}
+#gate-form { display:flex; gap:10px; width:100%; justify-content:center; }
+.gate-input {
+  width:120px; font-family:inherit; font-size:22px; letter-spacing:.5em; text-align:center;
+  padding:12px 0 12px 14px; min-height:48px;
+  border:1px solid rgba(234,223,213,.3); border-radius:8px;
+  background:rgba(234,223,213,.06); color:#eadfd5;
+}
+.gate-input:focus { outline:none; border-color:rgba(240,194,145,.7); }
+.gate-input::placeholder { color:rgba(234,223,213,.3); letter-spacing:.5em; }
+.gate-submit {
+  font-family:inherit; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  padding:0 22px; min-height:48px;
+  border:1px solid rgba(240,194,145,.5); border-radius:8px;
+  background:transparent; color:#f0c291; cursor:pointer; transition:all .25s ease;
+}
+.gate-submit:hover { background:#f0c291; color:#32180a; }
+.gate-error { margin:4px 0 0; font-size:12px; color:#e8a488; }
+
 /* ---------- Hero ---------- */
 .hero {
   position:relative;

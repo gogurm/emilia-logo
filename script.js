@@ -1,6 +1,35 @@
 (function () {
   'use strict';
 
+  var GATE_CODE = '4465';
+  var GATE_KEY = 'emilia-gate-unlocked';
+
+  function unlockGate() {
+    document.getElementById('gate').hidden = true;
+    document.getElementById('site-content').hidden = false;
+  }
+
+  try {
+    if (sessionStorage.getItem(GATE_KEY) === '1') unlockGate();
+  } catch (e) { /* storage unavailable — fall through to asking for the code */ }
+
+  var gateForm = document.getElementById('gate-form');
+  var gateInput = document.getElementById('gate-code');
+  var gateError = document.getElementById('gate-error');
+
+  gateForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (gateInput.value.trim() === GATE_CODE) {
+      try { sessionStorage.setItem(GATE_KEY, '1'); } catch (e) { /* ignore */ }
+      gateError.hidden = true;
+      unlockGate();
+    } else {
+      gateError.hidden = false;
+      gateInput.value = '';
+      gateInput.focus();
+    }
+  });
+
   var GRADIENT = 'url(#emGrad)';
   var DARK = '#32180a';
   var LIGHT = '#eadfd5';
@@ -19,6 +48,27 @@
   // Maps the picker's internal keys to the real exported-file naming scheme.
   var LOCKUP_FILE = { vertical: 'vertical', horizontal: 'orizontal', wordmark: 'text', mark: 'simbol' };
   var VARIANT_FILE = { color: 'full-color', mono: 'mono-crem', gradient: 'gradient' };
+
+  // Real logo files, synced from the client's Google Drive folder — keyed by
+  // "<lockup>-<variant>" file stem, each holding that file's Drive id.
+  var DRIVE_FILES = {
+    'vertical-full-color': { svg: '1zc3c6eB7VABeATln41VI_RXZA7vFWqEC', png: '1wPhykMC4bBrdgKxTv503R_A3uZ00-u1w' },
+    'vertical-mono-crem': { svg: '1CfmJ6VAdlej2mOR3q6s9wVyuBhzH0pS2', png: '1p9iGZLDU1eNIneNADliRcksjkXeEWK2i' },
+    'vertical-gradient': { svg: '1PrDaqBfoo72IzOvE9b4a07hJuRMyANhI', png: '1SMwWxqu1Z8IA58fZUfbQQ7VonCAfgrHx' },
+    'orizontal-full-color': { svg: '1EXhODzIKJpY0cjSaR8gVTH7wypbScpOV', png: '1j_muEPGJPI2ZGJPugiC-ide71alpfjKV' },
+    'orizontal-mono-crem': { svg: '1Mxb02Txo-ZjSDXMcoVz6M-Z2Qp2-JI43', png: '1iF47dLtlmMx6KtQsjevrKTx8Wtv5fqID' },
+    'orizontal-gradient': { svg: '1IuZIecS0bTxqdZ-5phz5tXeShiH48mY3', png: '1hbNumJcshjYAfBNJS1ka8Zlpqga2mDt5' },
+    'text-full-color': { svg: '1g_GEhV8YATXLHndGD31T1iJjTTCv_-iB', png: '1tjwt322h_puZIe7i9joDeQiq1S_gbfzJ' },
+    'text-mono-crem': { svg: '1Ek-qhGmTx8s2UY30WFSYGFcpA8RL5BE0', png: '1W4iw-mo56WBoSGQ_4rVxVPrY5zufeFqQ' },
+    'text-gradient': { svg: '1vsh288b5RJxsOdtEFUQzAdA7Kh8_iYr4', png: '17MWVZPsnNIhIa1v3b3mLhQ4654FxXg50' },
+    'simbol-full-color': { svg: '1p9wQaRND_4BGW5eio4YGYwO7OZykrM_z', png: '1maqfckgLF2q7we0Pbiodb3LraeTw-Kxo' },
+    'simbol-mono-crem': { svg: '1YkggNSXNshVasjJyXLTwHMV4pcwLMdZ5', png: '18YmaCOBMIZNaetnQwg3xsBw3Is6pnrEF' },
+    'simbol-gradient': { svg: '1_bncs7CL260gR0HpPMg8yL6hQJSM6BmH', png: '18IjXZt7gl_NuwboMQ3mwCKUIJsKbx48k' }
+  };
+
+  function driveDownloadUrl(id) {
+    return 'https://drive.google.com/uc?export=download&id=' + id;
+  }
 
   var LOCKUP_LABEL = { vertical: 'Lockup vertical', horizontal: 'Lockup orizontal', wordmark: 'Wordmark', mark: 'Simbol' };
   var VARIANT_LABEL = { color: 'full color', mono: 'monocrom', gradient: 'gradient' };
@@ -62,15 +112,21 @@
 
     var realLockup = LOCKUP_FILE[state.lockup];
     var realVariant = VARIANT_FILE[state.variant];
-    var fileStem = 'emilia-' + realLockup + '-' + realVariant;
+    var driveKey = realLockup + '-' + realVariant;
+    var fileStem = 'emilia-' + driveKey;
     document.getElementById('file-stem').textContent = fileStem;
 
+    var driveFiles = DRIVE_FILES[driveKey];
     var svgLink = document.getElementById('download-svg');
-    svgLink.href = 'export/svg/' + fileStem + '.svg';
-    svgLink.setAttribute('download', fileStem + '.svg');
-
     var pngLink = document.getElementById('download-png');
-    pngLink.href = 'export/png/' + fileStem + '.png';
+    if (driveFiles) {
+      svgLink.href = driveDownloadUrl(driveFiles.svg);
+      pngLink.href = driveDownloadUrl(driveFiles.png);
+    } else {
+      svgLink.href = 'export/svg/' + fileStem + '.svg';
+      pngLink.href = 'export/png/' + fileStem + '.png';
+    }
+    svgLink.setAttribute('download', fileStem + '.svg');
     pngLink.setAttribute('download', fileStem + '.png');
   }
 
