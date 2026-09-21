@@ -1,0 +1,98 @@
+[
+  {
+    "name": "vertical-full-color",
+    "path": "export/svg/emilia-vertical-full-color.svg",
+    "vb": "0 0 353.19 306",
+    "w": 1600
+  },
+  {
+    "name": "orizontal-full-color",
+    "path": "export/svg/emilia-orizontal-full-color.svg",
+    "vb": "0 0 500.6 100",
+    "w": 2400
+  },
+  {
+    "name": "text-full-color",
+    "path": "export/svg/emilia-text-full-color.svg",
+    "vb": "0 0 353.19 83.48",
+    "w": 2400
+  },
+  {
+    "name": "simbol-full-color",
+    "path": "export/svg/emilia-simbol-full-color.svg",
+    "vb": "0 0 164.67 153.38",
+    "w": 1200
+  },
+  {
+    "name": "vertical-mono-espresso",
+    "path": "export/svg/emilia-vertical-mono-espresso.svg",
+    "vb": "0 0 353.19 306",
+    "w": 1600
+  },
+  {
+    "name": "orizontal-mono-espresso",
+    "path": "export/svg/emilia-orizontal-mono-espresso.svg",
+    "vb": "0 0 500.6 100",
+    "w": 2400
+  },
+  {
+    "name": "text-mono-espresso",
+    "path": "export/svg/emilia-text-mono-espresso.svg",
+    "vb": "0 0 353.19 83.48",
+    "w": 2400
+  },
+  {
+    "name": "simbol-mono-espresso",
+    "path": "export/svg/emilia-simbol-mono-espresso.svg",
+    "vb": "0 0 164.67 153.38",
+    "w": 1200
+  },
+  {
+    "name": "vertical-mono-crem",
+    "path": "export/svg/emilia-vertical-mono-crem.svg",
+    "vb": "0 0 353.19 306",
+    "w": 1600
+  },
+  {
+    "name": "orizontal-mono-crem",
+    "path": "export/svg/emilia-orizontal-mono-crem.svg",
+    "vb": "0 0 500.6 100",
+    "w": 2400
+  },
+  {
+    "name": "text-mono-crem",
+    "path": "export/svg/emilia-text-mono-crem.svg",
+    "vb": "0 0 353.19 83.48",
+    "w": 2400
+  },
+  {
+    "name": "simbol-mono-crem",
+    "path": "export/svg/emilia-simbol-mono-crem.svg",
+    "vb": "0 0 164.67 153.38",
+    "w": 1200
+  },
+  {
+    "name": "vertical-gradient",
+    "path": "export/svg/emilia-vertical-gradient.svg",
+    "vb": "0 0 353.19 306",
+    "w": 1600
+  },
+  {
+    "name": "orizontal-gradient",
+    "path": "export/svg/emilia-orizontal-gradient.svg",
+    "vb": "0 0 500.6 100",
+    "w": 2400
+  },
+  {
+    "name": "text-gradient",
+    "path": "export/svg/emilia-text-gradient.svg",
+    "vb": "0 0 353.19 83.48",
+    "w": 2400
+  },
+  {
+    "name": "simbol-gradient",
+    "path": "export/svg/emilia-simbol-gradient.svg",
+    "vb": "0 0 164.67 153.38",
+    "w": 1200
+  }
+]

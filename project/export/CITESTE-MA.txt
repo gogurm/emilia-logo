@@ -1,0 +1,16 @@
+EMILIA INVESTMENT GROUP — pachet identitate
+
+/svg    16 fișiere vectoriale (4 compoziții × 4 cromatici)
+/png    aceleași, fundal transparent, 1200–2400 px lățime
+/fonturi  Venora Rosalind (display), Mikea Regular + Italic (text)
+
+Compoziții: vertical · orizontal · text (wordmark) · simbol
+Cromatici:  full-color (simbol #A85D2C + text #32180A)
+            mono-espresso (#32180A)
+            mono-crem (#EADFD5, pentru fundaluri închise)
+            gradient (aramă → crem, doar pe fundal închis)
+
+Fișierele .AI se exportă din Illustrator din sursa originală —
+deschide oricare .svg în Illustrator și salvează ca .ai dacă ai nevoie.
+
+Paletă: #32180A espresso · #F0C291 alamă · #EADFD5 cretă
