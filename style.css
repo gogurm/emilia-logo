@@ -1,0 +1,238 @@
+@font-face { font-family:'Venora Rosalind'; src:url('fonts/VenoraRosalind.ttf') format('truetype'); font-weight:400; font-display:swap; }
+@font-face { font-family:'Mikea'; src:url('fonts/Mikea-Regular.ttf') format('truetype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Mikea'; src:url('fonts/Mikea-Italic.ttf') format('truetype'); font-weight:400; font-style:italic; font-display:swap; }
+
+html, body { margin:0; padding:0; background:#32180a; }
+* { box-sizing: border-box; }
+a { color:#f0c291; text-decoration:none; }
+a:hover { color:#eadfd5; }
+
+body {
+  font-family:'Jost',system-ui,sans-serif;
+  background:#32180a;
+  color:#eadfd5;
+  width:100%;
+  overflow-x:hidden;
+}
+
+@keyframes emRise { from { opacity:0; transform: translateY(26px); } to { opacity:1; transform: translateY(0); } }
+@keyframes emReveal { from { clip-path: inset(0 0 100% 0); opacity:0; } to { clip-path: inset(0 0 0 0); opacity:1; } }
+@keyframes emTrack { from { opacity:0; letter-spacing:1.4em; } to { opacity:1; letter-spacing:0.46em; } }
+@keyframes emGlow { 0%,100% { opacity:.55; transform: translate(-50%,-50%) scale(1); } 50% { opacity:.85; transform: translate(-50%,-50%) scale(1.12); } }
+@keyframes emDrift { 0%,100% { transform: translateY(0); opacity:.5; } 50% { transform: translateY(10px); opacity:1; } }
+
+/* ---------- Hero ---------- */
+.hero {
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:96px 24px 32px;
+  overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 8%, #4a2510 0%, #32180a 58%, #240f05 100%);
+}
+.hero-glow {
+  position:absolute; left:50%; top:30%;
+  width:min(900px,120vw); height:min(900px,120vw);
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(240,194,145,.20) 0%, rgba(240,194,145,.05) 42%, rgba(240,194,145,0) 68%);
+  filter:blur(10px);
+  animation:emGlow 9s ease-in-out infinite;
+  pointer-events:none;
+}
+.hero-content {
+  position:relative;
+  margin:auto 0;
+  display:flex; flex-direction:column; align-items:center; gap:34px;
+  max-width:760px; text-align:center;
+}
+.hero-mark {
+  width:clamp(74px,11vw,116px); height:auto; display:block;
+  animation:emReveal 1.5s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero-word {
+  width:min(460px,78vw); height:auto; display:block;
+  animation:emRise 1.3s .5s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero-tagline {
+  margin:0; font-size:11px; letter-spacing:.46em; text-transform:uppercase;
+  color:rgba(240,194,145,.92);
+  animation:emTrack 1.6s .9s cubic-bezier(.2,.7,.2,1) both;
+}
+.hero-scroll {
+  position:relative; margin-top:auto; padding-top:48px;
+  display:flex; flex-direction:column; align-items:center; gap:10px;
+}
+.hero-scroll span:first-child {
+  font-size:9px; letter-spacing:.34em; text-transform:uppercase; color:rgba(234,223,213,.5);
+}
+.hero-scroll-line {
+  display:block; width:1px; height:44px;
+  background:linear-gradient(to bottom, rgba(240,194,145,.7), rgba(240,194,145,0));
+  animation:emDrift 3.2s ease-in-out infinite;
+}
+
+/* ---------- Shared section layout ---------- */
+.section {
+  padding:clamp(64px,9vw,120px) clamp(20px,5vw,64px);
+}
+.section-inner {
+  max-width:1120px; margin:0 auto;
+  display:flex; flex-direction:column; gap:clamp(32px,4vw,52px);
+}
+.section-light { background:#eadfd5; color:#32180a; }
+.section-cream { background:#f6efe7; color:#32180a; }
+.section-dark { background:#32180a; }
+
+.eyebrow {
+  font-size:10px; letter-spacing:.4em; text-transform:uppercase; color:rgba(50,24,10,.55);
+}
+.section-heading {
+  display:flex; flex-direction:column; gap:14px; max-width:620px;
+}
+.section-heading h2 {
+  margin:0; font-family:'Venora Rosalind','Cormorant Garamond',Georgia,serif; font-weight:400;
+  font-size:clamp(34px,5.2vw,58px); line-height:1.06; letter-spacing:-.01em;
+}
+.section-heading p {
+  margin:0; font-size:15px; line-height:1.7; color:rgba(50,24,10,.68);
+}
+
+/* ---------- 01 Variants ---------- */
+.controls-row {
+  display:flex; flex-wrap:wrap; gap:clamp(24px,5vw,64px);
+}
+.control-group {
+  display:flex; flex-direction:column; gap:14px;
+}
+.control-label {
+  font-size:9px; letter-spacing:.34em; text-transform:uppercase; color:rgba(50,24,10,.45);
+}
+.pill-row { display:flex; flex-wrap:wrap; gap:8px; }
+.pill {
+  font-family:inherit; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  padding:11px 18px; min-height:44px;
+  border:1px solid rgba(50,24,10,.25); border-radius:999px;
+  background:transparent; color:#32180a; cursor:pointer;
+  transition:all .25s ease; opacity:.42;
+}
+.pill:hover { border-color:rgba(50,24,10,.6); }
+.pill.is-active { opacity:1; }
+
+.variant-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));
+  gap:clamp(20px,3vw,40px); align-items:start;
+}
+.stage {
+  position:relative; min-height:clamp(300px,38vw,440px);
+  display:flex; align-items:center; justify-content:center;
+  padding:clamp(32px,5vw,64px); border:1px solid rgba(50,24,10,.14);
+  transition:background .5s ease;
+}
+.stage svg { display:none; }
+.stage svg.is-visible { display:block; }
+
+.stage-info { display:flex; flex-direction:column; gap:22px; padding-top:6px; }
+.stage-info .control-label { margin:0; }
+.stage-info h3 {
+  margin:0; font-family:'Venora Rosalind','Cormorant Garamond',Georgia,serif; font-weight:400;
+  font-size:clamp(24px,3.4vw,34px); line-height:1.2;
+}
+.stage-info > div > p {
+  margin:0; font-size:14px; line-height:1.7; color:rgba(50,24,10,.65);
+}
+.divider { height:1px; background:rgba(50,24,10,.14); }
+
+.download-block { display:flex; flex-direction:column; gap:12px; }
+.download-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); gap:10px;
+}
+.download-card {
+  display:flex; flex-direction:column; gap:4px; min-height:64px; justify-content:center;
+  padding:14px 16px; border:1px solid rgba(50,24,10,.22); color:#32180a;
+  transition:all .25s ease;
+}
+.download-card:hover { background:#32180a; color:#eadfd5; border-color:#32180a; }
+.download-card .fmt { font-size:13px; letter-spacing:.16em; }
+.download-card .sub { font-size:10px; letter-spacing:.1em; opacity:.6; }
+.file-stem { margin:0; font-size:11px; line-height:1.6; color:rgba(50,24,10,.45); }
+.file-stem span { letter-spacing:.06em; }
+
+/* ---------- Mosaic ---------- */
+.mosaic-hint {
+  align-self:flex-end; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(50,24,10,.45);
+}
+.mosaic-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
+  grid-auto-rows:clamp(130px,15vw,175px); gap:clamp(12px,1.8vw,20px);
+}
+.mosaic-tile {
+  border:0; padding:clamp(20px,3vw,44px);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:background .55s ease;
+}
+.mosaic-tile svg { pointer-events:none; display:block; }
+.tile-0, .tile-1 { grid-row:span 2; }
+.tile-0 { grid-column:span 2; }
+.tile-4 { grid-column:span 2; }
+
+/* ---------- 02 Business card ---------- */
+.card-image { display:block; width:100%; height:auto; object-fit:cover; }
+
+/* ---------- 03 Typography ---------- */
+.type-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));
+  gap:1px; background:rgba(50,24,10,.16);
+}
+.type-card {
+  background:#f6efe7; padding:clamp(28px,4vw,48px);
+  display:flex; flex-direction:column; gap:22px;
+}
+.type-card .control-label { color:rgba(50,24,10,.5); }
+.type-name-display {
+  font-family:'Venora Rosalind',serif; font-size:clamp(28px,4vw,44px); line-height:1.1; color:#32180a;
+}
+.type-name-text {
+  font-family:'Mikea',serif; font-size:clamp(28px,4vw,44px); line-height:1.1; color:#32180a;
+}
+.type-glyphs-display {
+  font-family:'Venora Rosalind',serif; font-size:clamp(26px,4.6vw,52px); line-height:1.25; color:#32180a; word-break:break-word;
+}
+.type-glyphs-text {
+  font-family:'Mikea',serif; font-size:clamp(22px,3.6vw,40px); line-height:1.3; color:#32180a; word-break:break-word;
+}
+.type-desc-display {
+  margin:0; font-family:'Venora Rosalind',serif; font-size:clamp(17px,2.2vw,24px); line-height:1.5; color:rgba(50,24,10,.75);
+}
+.type-desc-text {
+  margin:0; font-family:'Mikea',serif; font-size:clamp(15px,1.9vw,19px); line-height:1.65; color:rgba(50,24,10,.75);
+}
+
+/* ---------- 04 Palette ---------- */
+.palette-heading h2 { color:#eadfd5; }
+.palette-heading .eyebrow { color:rgba(240,194,145,.6); }
+.palette-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));
+  gap:clamp(14px,2vw,24px);
+}
+.swatch { display:flex; flex-direction:column; }
+.swatch-color { height:clamp(140px,18vw,200px); }
+.swatch-info { padding:16px 2px; display:flex; flex-direction:column; gap:4px; }
+.swatch-info .hex { font-size:13px; letter-spacing:.14em; color:#eadfd5; }
+.swatch-info .name { font-size:11px; letter-spacing:.1em; color:rgba(234,223,213,.55); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background:#240f05; padding:clamp(40px,6vw,64px) clamp(20px,5vw,64px);
+  border-top:1px solid rgba(234,223,213,.1);
+}
+.footer-inner {
+  max-width:1120px; margin:0 auto; display:flex; flex-wrap:wrap;
+  gap:24px; align-items:center; justify-content:space-between;
+}
+.footer-word { width:min(180px,50vw); height:auto; display:block; }
+.footer-copy {
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:rgba(234,223,213,.4);
+}
