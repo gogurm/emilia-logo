@@ -52,18 +52,18 @@
   // Real logo files, synced from the client's Google Drive folder — keyed by
   // "<lockup>-<variant>" file stem, each holding that file's Drive id.
   var DRIVE_FILES = {
-    'vertical-full-color': { svg: '1zc3c6eB7VABeATln41VI_RXZA7vFWqEC', png: '1wPhykMC4bBrdgKxTv503R_A3uZ00-u1w' },
-    'vertical-mono-crem': { svg: '1CfmJ6VAdlej2mOR3q6s9wVyuBhzH0pS2', png: '1p9iGZLDU1eNIneNADliRcksjkXeEWK2i' },
-    'vertical-gradient': { svg: '1PrDaqBfoo72IzOvE9b4a07hJuRMyANhI', png: '1SMwWxqu1Z8IA58fZUfbQQ7VonCAfgrHx' },
-    'orizontal-full-color': { svg: '1EXhODzIKJpY0cjSaR8gVTH7wypbScpOV', png: '1j_muEPGJPI2ZGJPugiC-ide71alpfjKV' },
-    'orizontal-mono-crem': { svg: '1Mxb02Txo-ZjSDXMcoVz6M-Z2Qp2-JI43', png: '1iF47dLtlmMx6KtQsjevrKTx8Wtv5fqID' },
-    'orizontal-gradient': { svg: '1IuZIecS0bTxqdZ-5phz5tXeShiH48mY3', png: '1hbNumJcshjYAfBNJS1ka8Zlpqga2mDt5' },
-    'text-full-color': { svg: '1g_GEhV8YATXLHndGD31T1iJjTTCv_-iB', png: '1tjwt322h_puZIe7i9joDeQiq1S_gbfzJ' },
-    'text-mono-crem': { svg: '1Ek-qhGmTx8s2UY30WFSYGFcpA8RL5BE0', png: '1W4iw-mo56WBoSGQ_4rVxVPrY5zufeFqQ' },
-    'text-gradient': { svg: '1vsh288b5RJxsOdtEFUQzAdA7Kh8_iYr4', png: '17MWVZPsnNIhIa1v3b3mLhQ4654FxXg50' },
-    'simbol-full-color': { svg: '1p9wQaRND_4BGW5eio4YGYwO7OZykrM_z', png: '1maqfckgLF2q7we0Pbiodb3LraeTw-Kxo' },
-    'simbol-mono-crem': { svg: '1YkggNSXNshVasjJyXLTwHMV4pcwLMdZ5', png: '18YmaCOBMIZNaetnQwg3xsBw3Is6pnrEF' },
-    'simbol-gradient': { svg: '1_bncs7CL260gR0HpPMg8yL6hQJSM6BmH', png: '18IjXZt7gl_NuwboMQ3mwCKUIJsKbx48k' }
+    'vertical-full-color': { svg: '1krOxSfvB7phXoW0ofSYMyUqd6PWZ5Lpj', png: '1IUH5mCw3U5g8swuvjt-ZPIMNY-Bvog7u' },
+    'vertical-mono-crem': { svg: '1waXJ_TR7aV0liBb0HGQCwR1dP15qLKeG', png: '1QP97CvA-Y37EvcSzQSuUPy5khv8i427Z' },
+    'vertical-gradient': { svg: '1xmkAMPDMRchNZVsN64jU9ty53OsTBkU1', png: '1-B9-tkqCJj1ofZDDP0nIFem4uVZ9Zk9O' },
+    'orizontal-full-color': { svg: '1aNjbI4qveOkFayxw3rV7BLHBIW82CKbI', png: '1OEoE9Ia7IbqSXnKB9ZbwinI7tDmz2X3-' },
+    'orizontal-mono-crem': { svg: '16ZZOyahJuFdHQ-tcftVvAMLRsv_djGtz', png: '1asS6MnmnmpGGlNfTjDhx0HQgYRvzJGJw' },
+    'orizontal-gradient': { svg: '19ERGmxMBJKdGQKEgVgntQXq7AtyaU69_', png: '17cCwHKddLDDf0P-QBT-SPfALmrfDHpNV' },
+    'text-full-color': { svg: '1AXEdZg1VU_BDnzHd4Ww2TDU9f9UYCaGg', png: '1EIyMmkyoN4kc-OEoEycQo8nP8q8Y5cP2' },
+    'text-mono-crem': { svg: '1c5Z1puO5VoFmMb4CwV9_nT_ESz9eIhvS', png: '1mLSjheCgyC1g0iBt773Z_aX3zuflTF05' },
+    'text-gradient': { svg: '1a4n6TJkifWBPptHDaIcgihH8CAsQTfpE', png: '1qd0KsfcpxOnFJBhX34stbpZwNVasxYJH' },
+    'simbol-full-color': { svg: '1t2E_DLIoAga-_l7yN3H2AMOFSVaH4lh2', png: '1ZHtNgFy1ZW5_FWGyWMP_WvAWMAiZ5fYZ' },
+    'simbol-mono-crem': { svg: '1r9hBQVWs3u1LRCAwB9yfqn9ynhM-XUtG', png: '14D9nJs5J8SeEtCekoWi5c0DMziTqfLSu' },
+    'simbol-gradient': { svg: '17v_318LSC7RS7depTOFK1-Oa6D8bkRNQ', png: '1zjpqrAZB2ckuP5rQEOoilIRvJssTrmnM' }
   };
 
   function driveDownloadUrl(id) {
