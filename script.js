@@ -49,22 +49,10 @@
   var LOCKUP_FILE = { vertical: 'vertical', horizontal: 'orizontal', wordmark: 'text', mark: 'simbol' };
   var VARIANT_FILE = { color: 'full-color', mono: 'mono-crem', gradient: 'gradient' };
 
-  // Real logo files, synced from the client's Google Drive folder — keyed by
-  // "<lockup>-<variant>" file stem, each holding that file's Drive id.
-  var DRIVE_FILES = {
-    'vertical-full-color': { svg: '1krOxSfvB7phXoW0ofSYMyUqd6PWZ5Lpj', png: '1IUH5mCw3U5g8swuvjt-ZPIMNY-Bvog7u' },
-    'vertical-mono-crem': { svg: '1waXJ_TR7aV0liBb0HGQCwR1dP15qLKeG', png: '1QP97CvA-Y37EvcSzQSuUPy5khv8i427Z' },
-    'vertical-gradient': { svg: '1xmkAMPDMRchNZVsN64jU9ty53OsTBkU1', png: '1-B9-tkqCJj1ofZDDP0nIFem4uVZ9Zk9O' },
-    'orizontal-full-color': { svg: '1aNjbI4qveOkFayxw3rV7BLHBIW82CKbI', png: '1OEoE9Ia7IbqSXnKB9ZbwinI7tDmz2X3-' },
-    'orizontal-mono-crem': { svg: '16ZZOyahJuFdHQ-tcftVvAMLRsv_djGtz', png: '1asS6MnmnmpGGlNfTjDhx0HQgYRvzJGJw' },
-    'orizontal-gradient': { svg: '19ERGmxMBJKdGQKEgVgntQXq7AtyaU69_', png: '17cCwHKddLDDf0P-QBT-SPfALmrfDHpNV' },
-    'text-full-color': { svg: '1AXEdZg1VU_BDnzHd4Ww2TDU9f9UYCaGg', png: '1EIyMmkyoN4kc-OEoEycQo8nP8q8Y5cP2' },
-    'text-mono-crem': { svg: '1c5Z1puO5VoFmMb4CwV9_nT_ESz9eIhvS', png: '1mLSjheCgyC1g0iBt773Z_aX3zuflTF05' },
-    'text-gradient': { svg: '1a4n6TJkifWBPptHDaIcgihH8CAsQTfpE', png: '1qd0KsfcpxOnFJBhX34stbpZwNVasxYJH' },
-    'simbol-full-color': { svg: '1t2E_DLIoAga-_l7yN3H2AMOFSVaH4lh2', png: '1ZHtNgFy1ZW5_FWGyWMP_WvAWMAiZ5fYZ' },
-    'simbol-mono-crem': { svg: '1r9hBQVWs3u1LRCAwB9yfqn9ynhM-XUtG', png: '14D9nJs5J8SeEtCekoWi5c0DMziTqfLSu' },
-    'simbol-gradient': { svg: '17v_318LSC7RS7depTOFK1-Oa6D8bkRNQ', png: '1zjpqrAZB2ckuP5rQEOoilIRvJssTrmnM' }
-  };
+  // Real logo files in the client's Google Drive folder, keyed by "<lockup>-<variant>"
+  // file stem, each holding that file's Drive id. Empty until the new pack is uploaded,
+  // so downloads fall back to the copies in export/.
+  var DRIVE_FILES = {};
 
   function driveDownloadUrl(id) {
     return 'https://drive.google.com/uc?export=download&id=' + id;
